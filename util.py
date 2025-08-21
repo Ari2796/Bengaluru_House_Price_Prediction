@@ -31,8 +31,7 @@ def load_saved_artifacts():
     global __locations
     global __model
 
-    # --- THIS IS THE UPDATED CODE ---
-    # It builds an absolute path to your files, which is much more reliable
+    # This updated code builds a reliable path that works on any server
     base_dir = os.path.dirname(os.path.abspath(__file__))
     columns_path = os.path.join(base_dir, "artifacts", "columns.json")
     model_path = os.path.join(base_dir, "artifacts", "banglore_home_prices_model.pickle")
@@ -45,7 +44,6 @@ def load_saved_artifacts():
         with open(model_path, 'rb') as f:
             __model = pickle.load(f)
     print("loading saved artifacts...done")
-
 
 def get_location_names():
     return __locations
